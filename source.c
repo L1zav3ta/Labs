@@ -13,7 +13,7 @@
 #define MAX_NAME 21
 #define COUNT_LEVEL 17
 enum ConsoleColor {
-	Black = 0,
+	Black = 0, //ghfjg
 	Blue = 1,
 	Green = 2,
 	Cyan = 3,
