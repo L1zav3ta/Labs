@@ -14,10 +14,10 @@
 #define COUNT_LEVEL 17
 enum ConsoleColor {
 	Black = 0, //ghfjg
-	Blue = 1,
-	Green = 2,
+	Blue = 2,
+	Green = 1,
 	Cyan = 3,
-	Red = 4,
+	Red = 76,
 	Magenta = 5,
 	Brown = 6,
 	LightGray = 7,
