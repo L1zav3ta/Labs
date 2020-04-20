@@ -3,27 +3,33 @@
 #ifndef TheDirectedGraph
 #define TheDirectedGraph
 
+typedef struct Edges {
+	int idxStart;
+	int idxFinish;
+	int weight;
+}Edges_t;
+
 //Filling in matrix of 0:
-void Matrix_Vertex(int **A, int countVert);
+void Init_Adjencency_Matrix(int **adjencencyMatrix, int countVert);
 
 //Filling in the adjencency matrix:
-void Adjencency_Matrix(int **A, int countVert, int startStr, int startCol);
+void Create_Adjencency_Matrix(int **adjencencyMatrix, int countVert, int startStr, int startCol);
 
 //Output ajencency matrix:
-void Output_Adjencency_Matrix(int **A, int countVert);
+void Output_Adjencency_Matrix(int **adjencencyMatrix, int countVert);
 
 //Counts the number of edges
-int Count_Edges(int **A, int countVert);
+int Count_Edges(int **adjencencyMatrix, int countVert);
 
 //Filling in the matrix of edges:
-void Matrix_Edges(int **A1, int countVert, int *A2, int countEdg);
+void Matrix_Edges(int **adjencencyMatrix, int countVert, Edges_t *arrayEdges);
 
+//Sort for arrayEdges:
+Edges_t* Sort_Array_Edg(Edges_t *arrayEdges, int countEdg);
 
-
-/*//Kruskal's algorithm:
-void Kruskal_Algorithm(int **A, int countVert);*/
+//
+void Kruskal_Algorithm(Edges_t *arrayEdges, int countEdg);
 
 #endif // !TheDirectedGraph
-
 
 
