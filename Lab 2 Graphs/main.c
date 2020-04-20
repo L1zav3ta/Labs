@@ -6,7 +6,6 @@ each edge is assigned the cost of the path between the vertices. Kruskal's algor
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
-#define NOT_OK 1
 #include "TheDirectedGraph.h"
 
 int main() {
@@ -17,7 +16,7 @@ int main() {
 	if (scanf("%d", &countVert) == 0 || countVert <= 0) {
 		printf("input error\n\n");
 		system("pause");
-		return NOT_OK;
+		return 0;
 	}
 
 	//Memory allocation for the adjencency matrix:
