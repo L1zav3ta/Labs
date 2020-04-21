@@ -9,7 +9,10 @@ typedef struct Edges {
 	int weight;
 }Edges_t;
 
-//Filling in matrix of 0:
+//Input Count Verticec:
+int Input_Count_Vert();
+
+//Initialization in matrix of 0:
 void Init_Adjencency_Matrix(int **adjencencyMatrix, int countVert);
 
 //Filling in the adjencency matrix:
@@ -25,10 +28,13 @@ int Count_Edges(int **adjencencyMatrix, int countVert);
 void Matrix_Edges(int **adjencencyMatrix, int countVert, Edges_t *arrayEdges);
 
 //Sort for arrayEdges:
-Edges_t* Sort_Array_Edg(Edges_t *arrayEdges, int countEdg);
+void Sort_Array_Edg(Edges_t *arrayEdges, int countEdg);
 
-//
+//Output minim Tree
 void Kruskal_Algorithm(Edges_t *arrayEdges, int countEdg);
+
+//clear memory:
+void ClearMemory(void **adjencencyMatrix, Edges_t* arrayEdges, int countVert);
 
 #endif // !TheDirectedGraph
 
