@@ -12,20 +12,15 @@ int main() {
 	int **adjencencyMatrix, i, countVert, startStr, startCol, countEdg = 0;
 	Edges_t *arrayEdges = NULL;
 
-	printf("Enter the number of vertexes:\n");
-	if (scanf("%d", &countVert) == 0 || countVert <= 0) {
-		printf("input error\n\n");
-		system("pause");
-		return 0;
-	}
+	countVert = Input_Count_Vert();
 
 	//Memory allocation for the adjencency matrix:
 	if (!(adjencencyMatrix = (int**)malloc(countVert * sizeof(int*))))
-		return NULL;
+		return 1;
 	for (i = 0; i < countVert; i++)
-		if(!(adjencencyMatrix[i] = (int*)malloc(countVert * sizeof(int))))
-			return NULL;
-
+		if (!(adjencencyMatrix[i] = (int*)malloc(countVert * sizeof(int))))
+			return 1;
+	
 	//Sample output: 
 	printf("\nYour matrix look like:\n");
 	Init_Adjencency_Matrix(adjencencyMatrix, countVert);
@@ -49,14 +44,11 @@ int main() {
 	Matrix_Edges(adjencencyMatrix, countVert, arrayEdges);
 
 	Kruskal_Algorithm(arrayEdges, countEdg);
-
+	
+	//clear memory:
+	ClearMemory(adjencencyMatrix,arrayEdges,countVert);
+	
 	printf("\n\n");
-
-	// clear memory
-	for (i = 0; i < countVert; i++)
-		if (adjencencyMatrix[i]) free(adjencencyMatrix[i]);
-	if (adjencencyMatrix) free(adjencencyMatrix);
-	if (arrayEdges) (arrayEdges);
 
 	system("pause");
 	return 0;
