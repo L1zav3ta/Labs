@@ -5,10 +5,24 @@
 #include <stdlib.h>
 #include "TheDirectedGraph.h"
 
-//Fills the matrix with 0:
+//Input Count Verticec:
+int Input_Count_Vert() {
+	int countVert;
+
+	printf("Enter the number of vertexes:\n");
+	if (scanf("%d", &countVert) == 0 || countVert <= 0) {
+		printf("input error\n\n");
+		system("pause");
+		return 0;
+	}
+	return countVert;
+}
+
+
+//Init the matrix with 0:
 void Init_Adjencency_Matrix(int **adjencencyMatrix, int countVert) {
 	int i, j;
-
+	
 	for (i = 0; i < countVert; i++) {
 		for (j = 0; j < countVert; j++)
 			adjencencyMatrix[i][j] = 0;
@@ -31,9 +45,9 @@ void Create_Adjencency_Matrix(int **adjencencyMatrix, int countVert, int startSt
 	for (i = startStr; i < countVert; i++) {
 		for (j = startCol; j < countVert; j++) {
 			if (i < j) {
-				printf("\n Enter the way weight from %c to %c ( between 0 and 99) ", 'A' + i, 'A' + j);
+				printf("\n Enter the way weight from %c to %c ( more than or equal to 0 ) ", 'A' + i, 'A' + j);
 
-				if (!(scanf("%d", &weight)) || weight < 0 || weight > 99) {
+				if (!(scanf("%d", &weight)) || weight < 0 ){ 
 					printf("\nweight error, try again\n");
 					system("pause");
 					return;
@@ -54,12 +68,12 @@ void Output_Adjencency_Matrix(int **adjencencyMatrix, int countVert) {
 	int i, j;
 
 	for (i = 0; i < countVert; i++)
-		printf(" %2c", 'A' + i);
+		printf(" %4c", 'A' + i);
 
 	for (i = 0; i < countVert; i++) {
 		printf("\n%c", 'A' + i);
 		for (j = 0; j < countVert; j++)
-			printf(" %2d", adjencencyMatrix[i][j]);
+			printf(" %4d", adjencencyMatrix[i][j]);
 	}
 	return;
 }
@@ -98,7 +112,7 @@ void Matrix_Edges(int **adjencencyMatrix, int countVert, Edges_t *arrayEdges) {
 }
 				
 //Sort for arrayEdges:
-Edges_t* Sort_Array_Edg(Edges_t *arrayEdges, int countEdg) {
+void Sort_Array_Edg(Edges_t *arrayEdges, int countEdg) {
 	int i, j, tmp;
 
 	for (i = 0; i < countEdg; i++) {
@@ -121,14 +135,14 @@ Edges_t* Sort_Array_Edg(Edges_t *arrayEdges, int countEdg) {
 		}
 	}
 	
-	return arrayEdges;
+	//return arrayEdges;
 }
 
 //Kruskal's algorithm:
 void Kruskal_Algorithm(Edges_t *arrayEdges, int countEdges) {
 	int i;
 	
-	arrayEdges = Sort_Array_Edg(arrayEdges, countEdges);
+	 Sort_Array_Edg(arrayEdges, countEdges);
 	
 	printf("Sorted an array of edges:\n");
 	for (i = 0; i < countEdges; i++) 
@@ -148,3 +162,22 @@ void Kruskal_Algorithm(Edges_t *arrayEdges, int countEdges) {
 	}
 	return;
 }
+
+//clear memory:
+void ClearMemory(void **adjencencyMatrix, Edges_t* arrayEdges, int countVert) {
+	int i;
+	for (i = 0; i < countVert; i++)
+		if (adjencencyMatrix[i]) 
+			free(adjencencyMatrix[i]);
+	if (adjencencyMatrix) 
+		free(adjencencyMatrix);
+
+	if (arrayEdges)
+		free(arrayEdges);
+	return;
+}
+
+
+
+
+
