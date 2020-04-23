@@ -51,7 +51,6 @@ void Create_Adjencency_Matrix(int **adjencencyMatrix, int countVert, int startSt
 					printf("\nweight error, try again\n");
 					system("pause");
 					return;
-					//Create_Adjencency_Matrix(adjencencyMatrix, countVert, i, j);
 				}
 
 				adjencencyMatrix[i][j] = weight;
