@@ -2,6 +2,9 @@
 
 using namespace std;
 
+//validation of the input element
+bool is_correct_element(int element);
+
 //matrix initialization
 int **init_matrix(int **matrix, int n, int m);
 

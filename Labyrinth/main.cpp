@@ -1,6 +1,8 @@
 #include <iostream>
 #include <utility>
+#include <stack>
 #include "Utils.h"
+#include "solve.h"
 
 using namespace std;
 

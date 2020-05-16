@@ -3,18 +3,32 @@
 
 using namespace std;
 
+//check for correct elem
+bool is_correct_element(int element) {
+	if ((element < 0) || (element > 1)) {
+		cout << "Incorrect value element" << endl;
+		system("pause");
+		return false;
+	}
+
+	return true;
+}
+
 //matrix initialization
 int **init_matrix(int **matrix, int n, int m) {
 	int i;
 
 	matrix = new (nothrow) int*[n];
-	if (!matrix)
+	if (!matrix) {
 		cout << "Could not allocate memory";
+		system("pause");
+	}
 
 	for (i = 0; i < n; i++) {
 		matrix[i] = new (nothrow) int[m];
 		if (!matrix[i]) {
 			cout << "Could not allocate memory";
+			system("pause");
 			break;
 		}
 
@@ -43,6 +57,7 @@ int **fill_matrix(int **matrix, int n, int m) {
 bool is_correct_size(int n, int m) {
 	if (n <= 0 || m <= 0) {
 		cout << "Incorrect size labyrinth" << endl;
+		system("pause");
 		return false;
 	}
 
