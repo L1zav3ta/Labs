@@ -42,6 +42,8 @@ int **fill_matrix(int **matrix, int n, int m) {
 	int i, j;
 
 	cout << "Filling matrix size of: " << n << "x" << m << endl;
+	cout << "1 = wall, 0 = free way" << endl;
+	
 	for (i = 0; i < n; i++) {
 		for (j = 0; j < m; j++) {
 			cin >> matrix[i][j];
