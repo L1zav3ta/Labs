@@ -39,3 +39,14 @@ INPUT:
 
 OUTPUT:
 Incorrect size labyrinth
+
+INPUT:
+5 7
+1 0 0 0 1 1 0
+0 0 0 0 0 0 0
+0 0 0 0 0 1 1
+0 0 0 0 0 0 0
+0 0 0 1 1 1 0	
+
+OUTPUT:
+YES
