@@ -38,3 +38,4 @@ INPUT:
 0 0
 
 OUTPUT:
+Incorrect size labyrinth
